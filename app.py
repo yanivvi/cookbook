@@ -38,8 +38,11 @@ def recepie():
             st.write(section_data.loc[i, "full_name"], hyperlink)
 
     st.header("הוראות")
+    
     for section in sections:
-        st.write(str(section_data["instructions"].values[0]))
+        section_data = recepie_data[recepie_data["section id"] == section]
+        st.write(section_data["section_name"].iloc[0])
+        st.write(section_data["instructions"].iloc[0])
 
 if __name__ == '__main__':
     recepie()
